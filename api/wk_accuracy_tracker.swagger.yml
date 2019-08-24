@@ -1,0 +1,100 @@
+openapi: 3.0.0
+info:
+  title: Wanikani Accuracy Tracker
+  description: Tracks your accuracy progress on Wanikani Reviews
+  version: 0.0.1
+servers:
+  - url: http://wk-accuracy-tracker.patrickayoup.com/api/v1
+paths:
+  /reviews:
+    get:
+      tags:
+        - Reviews
+      summary: Returns a list of reviews
+      description: A list of reviews and the results from that session
+      parameters:
+        - name: api_key
+          in: query
+          schema:
+            type: string
+          required: true
+      responses:
+        200:
+          description: The reviews resulting from the query
+          content:
+            application/json:
+              schema: 
+                type: array
+                items: 
+                  $ref: '#/components/schemas/Review'
+                  
+    post:
+      tags:
+        - Reviews
+      summary: Adds a review
+      description: Adds a review and its details
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Review'
+      responses:
+        201:
+          description: The resource was created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Review'
+          
+        
+components:
+  schemas:
+    Review:
+      type: object
+      properties:
+        api_key:
+          type: string
+          description: The Wanikani API Key (V2)
+          example: 73a83a1f0-b637-738C-aa21-22d1fa3d0d38
+        timestamp:
+          type: string
+          format: date-time
+          description: The timestamp of the review
+          example: '2019-01-01T09:00:00Z'
+        radicals_correct:
+          type: integer
+          description: The total number of radicals correctly reviewed
+          example: 5
+        kanji_correct:
+          type: integer
+          description: The total number of kanji correctly reviewed
+          example: 7
+        vocab_correct:
+          type: integer
+          description: The total number of vocabulary correctly reviewed
+          example: 10
+        total_radicals:
+          type: integer
+          description: The total number of radicals reviewed
+          example: 10
+        total_kanji:
+          type: integer
+          description: The total number of kanji reviewed
+          example: 10
+        total_vocab:
+          type: integer
+          description: The total number of vocab reviewed
+          example: 10
+        percent_correct:
+          type: integer
+          description: The total percent of items reviewed correctly
+          example: 73
+      required:
+        - api_key
+        - radicals_correct
+        - kanji_correct
+        - vocab_correct
+        - total_radicals
+        - total_kanji
+        - total_vocab
+        - percent_correct
