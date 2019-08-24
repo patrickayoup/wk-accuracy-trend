@@ -1,0 +1,15 @@
+{
+  "name": "wk-accuracy-tracker-swagger",
+  "version": "0.0.1",
+  "description": "Swagger UI For wk-accuracy-tracker",
+  "main": "index.js",
+  "dependencies": {
+    "swagger-ui-dist": "^3.23.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Patrick Ayoup",
+  "license": "MIT"
+}
