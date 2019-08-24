@@ -7,8 +7,8 @@ verify_ssl = true
 pytest = "==5.1.1"
 flake8 = "==3.7.8"
 
-
 [packages]
+gunicorn = "==19.9.0"
 flask = "==1.1.1"
 flask-restful = "==0.3.7"
 webargs = "==5.4.0"

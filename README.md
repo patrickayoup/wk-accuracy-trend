@@ -10,8 +10,5 @@ Tracks accuracy over time for WK Reviews
 
 [] TODO: DB Backup
 [] TODO: Logging
-[] TODO: Swagger
-[] TODO: Docker
-[] TODO: Gunicorn
 [] TODO: Monitoring
 
